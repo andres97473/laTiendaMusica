@@ -61,7 +61,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCancionTitle_idAlbum}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idAlbum}"/>
+                            <h:outputText value="#{item.idAlbum.nombreAlbum}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{cancionController.prepareCreate}" update=":CancionCreateForm" oncomplete="PF('CancionCreateDialog').show()"/>
