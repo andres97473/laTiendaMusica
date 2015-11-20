@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Musica Online</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/jumbotron-narrow.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <h:form class="form-control">  
+            <p:menubar>
+                <p:menuitem value="MusicaOnline" url="#"/>
+                 <p:submenu label="opciones" icon="ui-icon-document">
+                  <p:menuitem value="Banda" outcome="/banda/List" />
+                  <p:separator />
+                  <p:menuitem value="Album" outcome="/album/List" />
+                  <p:separator />
+                  <p:menuitem value="Cancion" outcome="/cancion/List" />
+                   <p:separator />
+                  <p:menuitem value="Cliente" outcome="/cliente/List" />
+                   <p:separator />
+                  <p:menuitem value="Usuario" outcome="/usuario/List" />
+                   <p:separator />
+                  <p:menuitem value="Venta" outcome="/venta/List" />
+                   <p:separator />
+        </p:submenu>
+                <p:submenu label="Soporte">
+                    <p:menuitem value="Mision" url="#"/>
+                    <p:menuitem value="Visión" url="#"/>
+                </p:submenu>
+
+                <f:facet name="options">
+                    <p:inputText style="margin-right:10px" placeholder="Correo electronico"/>
+                    <p:password id="nonFeedback" placeholder="Contraseña" value="#{passwordView.password1}" />
+                    <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+                </f:facet>
+            </p:menubar>
+        </h:form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        
+        <img src="resources/imagenes/musica.jpg" border="0" width="1330" height="600" ></img>
+    </h:body>
+
+</html>

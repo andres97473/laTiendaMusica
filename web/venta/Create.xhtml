@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VentaCreateDlg" widgetVar="VentaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVentaTitle}">
+            <h:form id="VentaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ventaController.selected != null}">
+                        
+                        <p:outputLabel value="#{bundle.CreateVentaLabel_valorTotal}" for="valorTotal" />
+                        <p:inputText id="valorTotal" value="#{ventaController.selected.valorTotal}" title="#{bundle.CreateVentaTitle_valorTotal}" />
+                        <p:outputLabel value="#{bundle.CreateVentaLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{ventaController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_idCliente}">
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateVentaLabel_idCancion}" for="idCancion" />
+                        <p:selectOneMenu id="idCancion" value="#{ventaController.selected.idCancion}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_idCancion}">
+                            <f:selectItems value="#{cancionController.itemsAvailableSelectOne}"
+                                           var="idCancionItem"
+                                           itemValue="#{idCancionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ventaController.create}" value="#{bundle.Save}" update="display,:VentaListForm:datalist,:growl" oncomplete="handleSubmit(args,'VentaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VentaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
